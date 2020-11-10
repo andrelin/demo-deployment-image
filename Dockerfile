@@ -22,10 +22,10 @@ RUN aws --version
 
 # Add the toml-parser for Helmsman
 WORKDIR /tmp
-ADD toml-parser.py /tmp
+ADD dsf-updater.py /tmp
 
 # Test that the toml-parser works
 ADD test-env /tmp/test-env
-RUN python3 toml-parser.py test-app 0.1 test-env dsf-test.toml
+RUN python3 dsf-updater.py test-app 0.1 test-env dsf-test.toml
 RUN rm -rf /tmp/test-env
 # End testing

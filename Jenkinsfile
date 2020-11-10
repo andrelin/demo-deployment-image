@@ -1,12 +1,12 @@
 
 // TODO: Set Jenkins Display name
-String jenkinsLabel = u.get_jenkins_node_label()
-String name = 'demo-deployment-image'
-String dockerImage = u.get_docker_image_name("core", name)
 // TODO: Set Chartmusuem URL
+String name = 'demo-deployment-image'
+String dockerImage = "eu.gcr.io/andrelin-dev/" + name
 
 podTemplate(
-        label: jenkinsLabel,
+        // TODO: Set unique Jenkins label per app
+        label: "jenkinsLabel",
         namespace: "core",
         serviceAccount: "jenkins",
         yaml: """
@@ -34,7 +34,7 @@ spec:
                     checkout scm
                     // helm_release(name, version)
                 }
-                stage("Create name release") {
+                stage("Create git release") {
                     // git_release_app()
                 }
             }
