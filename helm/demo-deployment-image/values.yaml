@@ -1,0 +1,3 @@
+image:
+  tag: 0.0.1
+  repository: eu.gcr.io/andrelin-dev/demo-deployment-image
